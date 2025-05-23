@@ -1,15 +1,22 @@
 import npyscreen
 import subprocess
+import curses.ascii
 
-
-#-------- override form with footertext
+'''
+This is the base class for all forms in the app.
+It defines a base footer and keybindings which can be altered from
+within the respective subclasses
+'''
 # TODO: Add base keybindings
 class BaseForm(npyscreen.Form):
     def create(self):
         super().create()
 
+        self.add_handlers({
+            "q": lambda x: self.parentApp.switchFormPrevious()
+        })
+
     def beforeEditing(self):
-        # remove existing footer if it exists
         if hasattr(self, 'footer'):
             self._widgets__.remove(self.footer)
 
@@ -23,7 +30,18 @@ class BaseForm(npyscreen.Form):
         )
 
     def footer_text(self):
-        return "q: Quit  |  <Up><Down>: Move  |  Enter: Select"
+        return "q: Prev/Quit  |  <Up><Down>: Move  |  Enter: Select"
+
+
+'''
+Confirm that the user wants to exit the app.
+'''
+class ConfirmExit(npyscreen.ActionPopup):
+    def on_ok(self):
+        self.parentApp.switchForm(None)
+
+    def on_cancel(self):
+        self.parentApp.switchForm("MAIN")
 
 
 '''
@@ -32,6 +50,12 @@ pages and edit files.
 '''
 class MainMenu(BaseForm):
     def create(self):
+        super().create()
+
+        self.add_handlers({
+            "q": lambda x: self.exit_app()
+        })
+
         self.add(
             npyscreen.ButtonPress,
             name="Edit File",
@@ -57,7 +81,7 @@ class MainMenu(BaseForm):
         self.parentApp.switchForm("SETTINGS")
 
     def exit_app(self):
-        self.parentApp.switchForm(None)
+        self.parentApp.switchForm("CONFIRM_EXIT")
 
 
 '''
@@ -65,6 +89,8 @@ Allows the user to edit different files from within their preferred editor
 '''
 class FileEditor(BaseForm):
     def create(self):
+        super().create()
+
         self.filename = "./test.txt"
 
         self.add(
@@ -107,6 +133,7 @@ class Settings(BaseForm):
             value="--- UI / INTERACTIONS ---",
             max_height=2,
         )
+        super().create()
 
         # -------- change editor
         self.selected_editor = self.add(

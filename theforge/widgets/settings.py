@@ -1,12 +1,15 @@
 import npyscreen
+from .base import BaseForm
 
 '''
 Submenu of the settings page. Allows the user to override default paths
 for editing config files, etc.
 '''
-class PathOverrides(npyscreen.Form):
+class PathOverrides(BaseForm):
     # -------- define/display paths
     def create(self):
+        super().create()
+
         self.make_conf = self.add(
             npyscreen.TitleFilename,
             name="make.conf",

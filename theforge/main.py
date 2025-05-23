@@ -1,4 +1,4 @@
-from .widgets.base import MainMenu, FileEditor, Settings
+from .widgets.base import MainMenu, FileEditor, Settings, ConfirmExit
 from .widgets.settings import PathOverrides
 import npyscreen
 import os
@@ -20,6 +20,7 @@ class MyApplication(npyscreen.NPSAppManaged):
 
         #-------- initialize menus
         self.addForm("MAIN", MainMenu, name="Main Menu")
+        self.addForm("CONFIRM_EXIT", ConfirmExit, name="Are you sure you want to exit?")
         self.addForm('EDITOR', FileEditor, name='Editor')
         self.addForm('SETTINGS', Settings, name='Settings')
         self.addForm('SETTINGS_PATH_OVERRIDES', PathOverrides, name='Path Overrides')
