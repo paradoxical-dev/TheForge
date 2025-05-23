@@ -1,0 +1,6 @@
+{
+    "editor": "nano",
+    "paths": {
+        "make.conf": "/home/gitmoney/tui/test.txt"
+    }
+}

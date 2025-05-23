@@ -1,0 +1,2 @@
+debugpy==1.8.14
+npyscreen==4.10.5
