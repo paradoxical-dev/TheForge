@@ -1,9 +1,11 @@
-from .widgets.base import JumpPad, FileEditor, Settings
+from .widgets.base import MainMenu, FileEditor, Settings
 from .widgets.settings import PathOverrides
 import npyscreen
 import os
 import json
 
+# NOTE: This needs to be changed later down the line.
+# its safe now for testing
 CONFIG_PATH = "./settings.json"
 
 class MyApplication(npyscreen.NPSAppManaged):
@@ -16,7 +18,7 @@ class MyApplication(npyscreen.NPSAppManaged):
         self.load_config()
 
         #-------- initialize menus
-        self.addForm("MAIN", JumpPad, name="Jump Pad")
+        self.addForm("MAIN", MainMenu, name="Main Menu")
         self.addForm('EDITOR', FileEditor, name='Editor')
         self.addForm('SETTINGS', Settings, name='Settings')
         self.addForm('SETTINGS_PATH_OVERRIDES', PathOverrides, name='Path Overrides')

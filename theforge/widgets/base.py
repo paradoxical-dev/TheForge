@@ -2,12 +2,13 @@ import npyscreen
 import subprocess
 
 #-------- override form with footertext
+# TODO: Add base keybindings
 class BaseForm(npyscreen.Form):
     def create(self):
         super().create()
 
     def beforeEditing(self):
-        # Remove existing footer if it exists
+        # remove existing footer if it exists
         if hasattr(self, 'footer'):
             self._widgets__.remove(self.footer)
 
@@ -27,7 +28,7 @@ class BaseForm(npyscreen.Form):
 Creates the base index for the app., allowing the user to "jump" to the other
 pages and edit files.
 '''
-class JumpPad(BaseForm):
+class MainMenu(BaseForm):
     def create(self):
         self.add(
             npyscreen.ButtonPress,
@@ -46,13 +47,6 @@ class JumpPad(BaseForm):
             name="Exit",
             when_pressed_function=self.exit_app
         )
-
-        # max_y, max_x = self.useable_space()
-        # self.nextrely = max_y - 3
-        # self.add(
-        #     npyscreen.FixedText,
-        #     value="test",
-        # )
 
     def open_editor(self):
         self.parentApp.switchForm("EDITOR")
