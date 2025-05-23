@@ -8,11 +8,12 @@ import json
 # its safe now for testing
 CONFIG_PATH = "./settings.json"
 
+
 class MyApplication(npyscreen.NPSAppManaged):
     #=== INITIALIZATION ===#
     def onStart(self):
 
-        npyscreen.setTheme(npyscreen.Themes.TransparentThemeDarkText)
+        npyscreen.setTheme(npyscreen.Themes.DefaultTheme)
 
         #-------- load config into mem
         self.load_config()

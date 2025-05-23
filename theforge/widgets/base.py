@@ -1,6 +1,7 @@
 import npyscreen
 import subprocess
 
+
 #-------- override form with footertext
 # TODO: Add base keybindings
 class BaseForm(npyscreen.Form):
@@ -23,6 +24,7 @@ class BaseForm(npyscreen.Form):
 
     def footer_text(self):
         return "q: Quit  |  <Up><Down>: Move  |  Enter: Select"
+
 
 '''
 Creates the base index for the app., allowing the user to "jump" to the other
@@ -108,8 +110,8 @@ class Settings(BaseForm):
 
         # -------- change editor
         self.selected_editor = self.add(
-            npyscreen.TitleSelectOne, 
-            name="Editor:", 
+            npyscreen.TitleSelectOne,
+            name="Editor:",
             scroll_exit=True,
             max_height=3,
             values=self.options['editors']
@@ -117,7 +119,7 @@ class Settings(BaseForm):
 
         # -------- path overrides menu
         self.add(
-            npyscreen.ButtonPress, 
+            npyscreen.ButtonPress,
             name="Path Overrides ->",
             when_pressed_function=self.open_path_overrides,
         )
@@ -129,13 +131,11 @@ class Settings(BaseForm):
             when_pressed_function=self.save_settings
         )
 
-
     #=== HELPERS ===#
 
     # -------- open paths tab
     def open_path_overrides(self):
         self.parentApp.switchForm("SETTINGS_PATH_OVERRIDES")
-
 
     # -------- save logic
     def save_settings(self):
@@ -159,4 +159,3 @@ class Settings(BaseForm):
 
         # -------- reset to main page
         self.parentApp.switchForm("MAIN")
-

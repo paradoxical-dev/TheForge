@@ -2,5 +2,7 @@ debugpy==1.8.14
 iniconfig==2.1.0
 npyscreen==4.10.5
 packaging==25.0
+pexpect==4.9.0
 pluggy==1.6.0
+ptyprocess==0.7.0
 pytest==8.3.5
