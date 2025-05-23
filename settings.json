@@ -1,6 +1,6 @@
 {
     "editor": "nano",
     "paths": {
-        "make.conf": "/home/gitmoney/tui/test.txt"
+        "make.conf": "/etc/portage/make.conf"
     }
 }
