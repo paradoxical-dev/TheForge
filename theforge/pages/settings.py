@@ -1,6 +1,7 @@
 import npyscreen
 from .base import BaseForm
 
+
 '''
 Submenu of the settings page. Allows the user to override default paths
 for editing config files, etc.

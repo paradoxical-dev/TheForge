@@ -1,5 +1,6 @@
-from .widgets.base import MainMenu, FileEditor, Settings, ConfirmExit
-from .widgets.settings import PathOverrides
+from .pages.base import MainMenu, FileEditor, Settings 
+from .pages.misc import ConfirmExit
+from .pages.settings import PathOverrides
 import npyscreen
 import os
 import json
