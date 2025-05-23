@@ -1,5 +1,5 @@
-from widgets.base import JumpPad, FileEditor, Settings
-from widgets.settings import PathOverrides
+from .widgets.base import JumpPad, FileEditor, Settings
+from .widgets.settings import PathOverrides
 import npyscreen
 import os
 import json
@@ -44,5 +44,5 @@ class MyApplication(npyscreen.NPSAppManaged):
             json.dump(config, f, indent=4)
 
 
-if __name__ == '__main__':
-    TestApp = MyApplication().run()
+def main():
+    MyApplication().run()
