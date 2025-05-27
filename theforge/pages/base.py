@@ -2,6 +2,15 @@ import npyscreen
 import subprocess
 from .misc import BaseForm
 
+greeter = """
+___________.__          ___________                         
+\__    ___/|  |__   ____\_   _____/__________  ____   ____  
+  |    |   |  |  \_/ __ \|    __)/  _ \_  __ \/ ___\_/ __ \ 
+  |    |   |   Y  \  ___/|     \(  <_> )  | \/ /_/  >  ___/ 
+  |____|   |___|  /\___  >___  / \____/|__|  \___  / \___  >
+                \/     \/    \/             /_____/      \/
+"""
+
 
 '''
 Creates the base index for the app., allowing the user to "jump" to the other
@@ -11,8 +20,11 @@ class MainMenu(BaseForm):
     def create(self):
         super().create()
 
+        self.add(npyscreen.FixedText, value=greeter, height=7)
+        self.nextrely += 7
+
         self.add_handlers({
-            "q": lambda x: self.exit_app()
+            "q": lambda x: self.parentApp.switchForm("CONFIRM_EXIT")
         })
 
         self.add(
@@ -27,20 +39,11 @@ class MainMenu(BaseForm):
             when_pressed_function=self.open_settings
         )
 
-        self.add(
-            npyscreen.ButtonPress,
-            name="Exit",
-            when_pressed_function=self.exit_app
-        )
-
     def open_editor(self):
         self.parentApp.switchForm("EDITOR")
 
     def open_settings(self):
         self.parentApp.switchForm("SETTINGS")
-
-    def exit_app(self):
-        self.parentApp.switchForm("CONFIRM_EXIT")
 
 
 '''
