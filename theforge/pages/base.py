@@ -18,6 +18,12 @@ class MainMenu(BaseForm):
     def create(self):
         super().create()
 
+        self.add_handlers({
+            "q": lambda x: self.parentApp.switchForm("CONFIRM_EXIT"),
+            "e": lambda x: self.open_editor(),
+            "c": lambda x: self.open_settings()
+        })
+
         for line in greeter:
             self.add(
                 npyscreen.FixedText,
@@ -26,12 +32,6 @@ class MainMenu(BaseForm):
             )
 
         self.nextrely += 7
-
-        self.add_handlers({
-            "q": lambda x: self.parentApp.switchForm("CONFIRM_EXIT"),
-            "e": lambda x: self.open_editor(),
-            "c": lambda x: self.open_settings()
-        })
 
         self.add(
             npyscreen.ButtonPress,

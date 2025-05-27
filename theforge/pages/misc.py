@@ -31,9 +31,6 @@ class BaseForm(npyscreen.Form):
         return "q: Prev/Quit  |  <Up><Down>: Move  |  Enter: Select"
 
 
-'''
-Confirm that the user wants to exit the app.
-'''
 class ConfirmExit(npyscreen.ActionPopup):
     def on_ok(self):
         self.parentApp.switchForm(None)
