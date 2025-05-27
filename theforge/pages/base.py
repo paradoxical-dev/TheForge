@@ -2,7 +2,7 @@ import npyscreen
 import subprocess
 from .misc import BaseForm
 
-greeter = """
+greeter = r"""
 ___________.__          ___________                         
 \__    ___/|  |__   ____\_   _____/__________  ____   ____  
   |    |   |  |  \_/ __ \|    __)/  _ \_  __ \/ ___\_/ __ \ 
@@ -11,32 +11,42 @@ ___________.__          ___________
                 \/     \/    \/             /_____/      \/
 """
 
+greeter = greeter.split("\n")
 
-'''
-Creates the base index for the app., allowing the user to "jump" to the other
-pages and edit files.
-'''
+
 class MainMenu(BaseForm):
     def create(self):
         super().create()
 
-        self.add(npyscreen.FixedText, value=greeter, height=7)
+        for line in greeter:
+            self.add(
+                npyscreen.FixedText,
+                value=line,
+                relx=round(self.useable_space()[1] / 2) - round(len(line) / 2),
+            )
+
         self.nextrely += 7
 
         self.add_handlers({
-            "q": lambda x: self.parentApp.switchForm("CONFIRM_EXIT")
+            "q": lambda x: self.parentApp.switchForm("CONFIRM_EXIT"),
+            "e": lambda x: self.open_editor(),
+            "c": lambda x: self.open_settings()
         })
 
         self.add(
             npyscreen.ButtonPress,
-            name="Edit File",
-            when_pressed_function=self.open_editor
+            name="(e)   Edit File ->",
+            when_pressed_function=self.open_editor,
+            relx=round(self.useable_space()[1] / 2) - round(len("(e)   Edit File ->") / 2),
         )
+
+        self.nextrely += 2
 
         self.add(
             npyscreen.ButtonPress,
-            name="Settings",
-            when_pressed_function=self.open_settings
+            name="(c)   Settings ->",
+            when_pressed_function=self.open_settings,
+            relx=round(self.useable_space()[1] / 2) - round(len("(e)   Edit File ->") / 2),
         )
 
     def open_editor(self):
@@ -46,9 +56,6 @@ class MainMenu(BaseForm):
         self.parentApp.switchForm("SETTINGS")
 
 
-'''
-Allows the user to edit different files from within their preferred editor
-'''
 class FileEditor(BaseForm):
     def create(self):
         super().create()
@@ -77,10 +84,6 @@ class FileEditor(BaseForm):
         self.parentApp.setNextForm("MAIN")
 
 
-'''
-Configuration settings of the app. Provides multiple menus to change
-and configure the behavior of the app.
-'''
 class Settings(BaseForm):
     #=== OPTION INITIALIZATION ===#
 
