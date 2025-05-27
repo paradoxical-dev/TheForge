@@ -88,7 +88,7 @@ class Settings(BaseForm):
     #=== OPTION INITIALIZATION ===#
 
     def create(self):
-        # -------- define options
+        #-------- define options
         self.options = {
             'editors': ["nvim", "vim", "nano"]
         }
@@ -100,7 +100,7 @@ class Settings(BaseForm):
         )
         super().create()
 
-        # -------- change editor
+        #-------- change editor
         self.selected_editor = self.add(
             npyscreen.TitleSelectOne,
             name="Editor:",
@@ -109,14 +109,14 @@ class Settings(BaseForm):
             values=self.options['editors']
         )
 
-        # -------- path overrides menu
+        #-------- path overrides menu
         self.add(
             npyscreen.ButtonPress,
             name="Path Overrides ->",
             when_pressed_function=self.open_path_overrides,
         )
 
-        # -------- save settings
+        #-------- save settings
         self.add(
             npyscreen.ButtonPress,
             name="Save",
@@ -125,13 +125,11 @@ class Settings(BaseForm):
 
     #=== HELPERS ===#
 
-    # -------- open paths tab
     def open_path_overrides(self):
         self.parentApp.switchForm("SETTINGS_PATH_OVERRIDES")
 
-    # -------- save logic
     def save_settings(self):
-        # -------- editor
+        #-------- editor
         selected_editor = self.selected_editor.get_selected_objects()
         if not selected_editor:
             selected_editor = self.parentApp.editor
@@ -149,5 +147,5 @@ class Settings(BaseForm):
             npyscreen.notify_wait(f"Editor not found on system: {selected_editor}")
             return self.parentApp.setNextForm("SETTINGS")
 
-        # -------- reset to main page
+        #-------- reset to main page
         self.parentApp.switchForm("MAIN")

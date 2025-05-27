@@ -14,11 +14,12 @@ with open(test_config_path, 'w') as f:
     }))
 
 npyscreen.TEST_SETTINGS['TEST_INPUT'] = [
-    curses.KEY_DOWN, 10,                                          # go to 'Settings' on MainMenu 
-    curses.KEY_DOWN, curses.KEY_DOWN, curses.KEY_DOWN, 10,        # down to nano 
-    curses.KEY_DOWN, curses.KEY_DOWN, 10                          # Save selecion
+    "c", curses.KEY_DOWN,                    # open settings / move to editor
+    curses.KEY_DOWN, curses.KEY_DOWN, 10,    # select nano
+    curses.KEY_DOWN, curses.KEY_DOWN, 10,    # save
+    "q", curses.KEY_RIGHT, 10                # quit
 ]
-npyscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = False
+npyscreen.TEST_SETTINGS['CONTINUE_AFTER_TEST_INPUT'] = True
 
 A = MyApplication()
 try:
