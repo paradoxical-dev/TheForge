@@ -1,6 +1,0 @@
-{
-    "editor": "nano",
-    "paths": {
-        "make.conf": "/etc/portage/make.conf"
-    }
-}
