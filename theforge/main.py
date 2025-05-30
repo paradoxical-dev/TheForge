@@ -1,7 +1,9 @@
 import subprocess
 import json
+from typing import Container
 from textual.app import App, ComposeResult
-from textual.widgets import Footer, Static
+from textual.widget import Widget
+from textual.widgets import Footer, Label, Static
 from textual.containers import Center
 
 logo = r"""
@@ -21,9 +23,12 @@ class Greeter(Static):
         self.update(f"{logo}\n{author}")
 
 
-class UserStats(Static):
-    def on_mount(self) -> None:
-        self.get_stats()
+class UserStats(Center):
+    def compose(self) -> ComposeResult:
+        pkg_count = self.pkg_count()
+        profile = self.selected_profile()
+        yield Label(f"Package count: {pkg_count}", classes="pkg-count")
+        yield Label(f"Profile: {profile}", classes="profile")
 
     def pkg_count(self):
         try:
@@ -43,20 +48,13 @@ class UserStats(Static):
             config = json.load(f)
         return config["profile"]
 
-    def get_stats(self):
-        package_count = self.pkg_count()
-        profile = self.selected_profile()
-        self.update(
-            f"Package count: {package_count}\n\n\n\nSelected profile: {profile}"
-        )
-
 
 class TestApp(App):
     CSS_PATH = "styles/main.tcss"
 
     def compose(self) -> ComposeResult:
         yield Greeter()
-        yield UserStats()
+        yield UserStats(id="stats")
         yield Footer()
 
 

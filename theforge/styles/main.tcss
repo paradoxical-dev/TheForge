@@ -4,10 +4,16 @@ Greeter {
     offset: 0 2;
 }
 
-UserStats {
-    text-align: center;
+#stats {
     position: relative;
-    offset: 0 8;
+    offset: 50% 10;
+    width: 50%;
 }
 
+#stats .profile {
+    margin: 2 0;
+}
 
+Footer {
+    background: transparent;
+}
