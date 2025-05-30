@@ -1,91 +1,65 @@
-from time import monotonic
+import subprocess
+import json
 from textual.app import App, ComposeResult
-from textual.reactive import reactive
-from textual.containers import HorizontalGroup, VerticalScroll
-from textual.widgets import Button, Digits, Footer
+from textual.widgets import Footer, Static
+from textual.containers import Center
+
+logo = r"""
+___________.__          ___________                         
+\__    ___/|  |__   ____\_   _____/__________  ____   ____  
+  |    |   |  |  \_/ __ \|    __)/  _ \_  __ \/ ___\_/ __ \ 
+  |    |   |   Y  \  ___/|     \(  <_> )  | \/ /_/  >  ___/ 
+  |____|   |___|  /\___  >___  / \____/|__|  \___  / \___  >
+                \/     \/    \/             /_____/      \/
+"""
+
+author = "By paradoxical-dev"
 
 
-class TimeDisplay(Digits):
-
-    start_time = reactive(monotonic)
-    time = reactive(0.0)
-    total = reactive(0.0)
-
+class Greeter(Static):
     def on_mount(self) -> None:
-        self.update_timer = self.set_interval(1 / 60, self.update_time, pause=True)
-
-    def update_time(self) -> None:
-        self.time = self.total + (monotonic() - self.start_time)
-
-    def watch_time(self, time: float) -> None:
-        minutes, seconds = divmod(time, 60)
-        hours, minutes = divmod(minutes, 60)
-        self.update(f"{hours:02.0f}:{minutes:02.0f}:{seconds:05.2f}")
-
-    def start(self) -> None:
-        self.start_time = monotonic()
-        self.update_timer.resume()
-
-    def stop(self) -> None:
-        self.update_timer.pause()
-        self.total += monotonic() - self.start_time
-        self.time = self.total
-
-    def reset(self) -> None:
-        self.time = 0
-        self.total = 0
+        self.update(f"{logo}\n{author}")
 
 
-class Stopwatch(HorizontalGroup):
+class UserStats(Static):
+    def on_mount(self) -> None:
+        self.get_stats()
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        button_id = event.button.id
-        time_display = self.query_one(TimeDisplay)
-        if button_id == "start":
-            time_display.start()
-            self.add_class("started")
-        elif button_id == "stop":
-            time_display.stop()
-            self.remove_class("started")
-        elif button_id == "reset":
-            time_display.reset()
+    def pkg_count(self):
+        try:
+            result = subprocess.run(
+                ["wc", "-l", "/var/lib/portage/world"],
+                stdout=subprocess.PIPE,
+                text=True,
+                check=True,
+            )
+            count = int(result.stdout.strip().split()[0])
+            return count
+        except Exception:
+            return "Package count unavailable"
 
-    def compose(self) -> ComposeResult:
-        yield Button("Start", id="start", variant="success")
-        yield Button("Stop", id="stop", variant="error")
-        yield Button("Reset", id="reset")
-        yield TimeDisplay()
+    def selected_profile(self):
+        with open("./test.json", "r") as f:
+            config = json.load(f)
+        return config["profile"]
 
-
-class StopwatchApp(App):
-
-    CSS_PATH = "styles/main.tcss"
-    BINDINGS = [
-        ("d", "toggle_dark", "Toggle dark mode"),
-        ("a", "add_stopwatch", "Add"),
-        ("r", "remove_stopwatch", "Remove"),
-    ]
-
-    def compose(self) -> ComposeResult:
-        yield Footer()
-        yield VerticalScroll(Stopwatch(), Stopwatch(), Stopwatch(), id="timers")
-
-    def action_add_stopwatch(self) -> None:
-        new_stopwatch = Stopwatch()
-        self.query_one("#timers").mount(new_stopwatch)
-        new_stopwatch.scroll_visible()
-
-    def action_remove_stopwatch(self) -> None:
-        timers = self.query("Stopwatch")
-        if timers:
-            timers.last().remove()
-
-    def action_toggle_dark(self) -> None:
-        self.theme = (
-            "textual-dark" if self.theme == "textual-light" else "textual-light"
+    def get_stats(self):
+        package_count = self.pkg_count()
+        profile = self.selected_profile()
+        self.update(
+            f"Package count: {package_count}\n\n\n\nSelected profile: {profile}"
         )
 
 
-def main() -> None:
-    app = StopwatchApp()
+class TestApp(App):
+    CSS_PATH = "styles/main.tcss"
+
+    def compose(self) -> ComposeResult:
+        yield Greeter()
+        yield UserStats()
+        yield Footer()
+
+
+def main():
+    app = TestApp()
     app.run()
