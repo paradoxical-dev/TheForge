@@ -35,6 +35,7 @@ class UserStats(Center):
             result = subprocess.run(
                 ["wc", "-l", "/var/lib/portage/world"],
                 stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
                 text=True,
                 check=True,
             )

@@ -1,6 +1,6 @@
 from textual.app import App
-from .screens.home import HomeScreen
-from .screens.settings import SecondScreen
+from theforge.screens.home import HomeScreen
+from theforge.screens.settings import SecondScreen
 
 
 class TestApp(App):
