@@ -1,10 +1,11 @@
 import subprocess
 import json
-from typing import Container
+from textual.binding import Binding
+from textual.screen import Screen
 from textual.app import App, ComposeResult
-from textual.widget import Widget
 from textual.widgets import Footer, Label, Static
 from textual.containers import Center
+
 
 logo = r"""
 ___________.__          ___________                         
@@ -41,7 +42,7 @@ class UserStats(Center):
             count = int(result.stdout.strip().split()[0])
             return count
         except Exception:
-            return "Package count unavailable"
+            return "unavailable"
 
     def selected_profile(self):
         with open("./test.json", "r") as f:
@@ -49,13 +50,34 @@ class UserStats(Center):
         return config["profile"]
 
 
-class TestApp(App):
-    CSS_PATH = "styles/main.tcss"
+class HomeScreen(Screen):
+    BINDINGS = [("s", "second_screen", "Second")]
+
+    def action_second_screen(self):
+        self.app.push_screen(SecondScreen())
 
     def compose(self) -> ComposeResult:
         yield Greeter()
         yield UserStats(id="stats")
         yield Footer()
+
+
+class SecondScreen(Screen):
+    BINDINGS = [("h", "go_home", "Home")]
+
+    def compose(self) -> ComposeResult:
+        yield Footer()
+        yield Static("Second Page")
+
+    def action_go_home(self):
+        self.app.push_screen(HomeScreen())
+
+
+class TestApp(App):
+    CSS_PATH = "styles/main.tcss"
+
+    def on_mount(self):
+        self.push_screen(HomeScreen())
 
 
 def main():
