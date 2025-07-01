@@ -5,3 +5,4 @@ __pycache__/
 *.py[cod]
 .mypy_cache/
 .pytest_cache/
+.vscode/
