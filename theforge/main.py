@@ -4,7 +4,7 @@ from theforge.screens.settings import SecondScreen
 from theforge.screens.misc import QuitScreen
 
 
-class TestApp(App):
+class TheForge(App):
     CSS_PATH = "styles/main.tcss"
 
     BINDINGS = [("q", "req_quit", "Quit")]
@@ -23,5 +23,5 @@ class TestApp(App):
 
 
 def main():
-    app = TestApp()
+    app = TheForge()
     app.run()
