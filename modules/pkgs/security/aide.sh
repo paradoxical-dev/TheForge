@@ -20,6 +20,8 @@ backup_config "$CONFIG_PATH" true
 
 sudo mkdir -p $(dirname "$CONFIG_PATH")
 
+sudo cp "$DOTFILE_PATH" "$CONFIG_PATH"
+
 sudo chown root:root "$CONFIG_PATH"
 sudo chmod 600 "$CONFIG_PATH"
 
@@ -72,3 +74,4 @@ sudo chmod +x /etc/cron.weekly/aide-update
 sudo chown root:root /etc/cron.daily/aide-check /etc/cron.weekly/aide-update
 
 echo -e "${green}AIDE initialized successfully!${color_end}"
+echo ""

@@ -33,6 +33,7 @@ include_modules=(
     pkgs/security/unbound
     pkgs/cli/msmtp
     pkgs/security/aide
+    pkgs/security/rkhunter
 
     pkgs/apps/nvim
     pkgs/apps/yazi

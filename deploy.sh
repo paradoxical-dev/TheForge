@@ -52,9 +52,9 @@ done
 #-----handle opts 
 
 export DEVICE=$(echo "$PROFILE" | cut -d'/' -f1) 
+export DEVICE_DIR="$REPO_DIR/devices/$DEVICE"
 export PROFILE=$(echo "$PROFILE" | cut -d'/' -f2) 
 export PROFILE_DIR="$REPO_DIR/devices/$DEVICE/profiles/$PROFILE" 
-echo $PROFILE_DIR 
 
 #----------colors 
 
@@ -98,5 +98,10 @@ $REPO_DIR/base/guru.sh
 
 echo ""
 echo -e "Beginning configuration of your machine..."
+echo ""
 
+echo "Sourcing profile $DEVICE/$PROFILE"
+echo ""
 
+source "$PROFILE_DIR/profile.sh"
+run_profile
