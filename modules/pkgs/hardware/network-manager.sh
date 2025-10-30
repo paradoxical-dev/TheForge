@@ -11,6 +11,19 @@ edit_use "networkmanager" "net-misc/networkmanager" "$flags"
 install_pkg "networkmanager" "net-misc/networkmanager"
 echo ""
 
+echo "Copying config for networkmanager..."
+echo ""
+
+CONFIG_PATH="/etc/NetworkManager/NetworkManager.conf"
+DOTFILE_PATH="$DEVICE_DIR/configs/network-manager/NetworkManager.conf"
+
+backup_config "$CONFIG_PATH" true
+
+sudo cp "$DOTFILE_PATH" "$CONFIG_PATH"
+
+echo -e "${green}networkmanager config copied into $CONFIG_PATH${color_end}"
+echo ""
+
 echo "Removing other network management services..."
 echo ""
 
