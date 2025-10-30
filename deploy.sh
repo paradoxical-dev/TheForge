@@ -104,4 +104,12 @@ echo "Sourcing profile $DEVICE/$PROFILE"
 echo ""
 
 source "$PROFILE_DIR/profile.sh"
+
+if [[ "$needs_email" == true ]]; then
+    inform_msg "Email is required for current profile!" "(Will still need to be input if msmtp is to be configured)"
+    sleep 1
+    USER_EMAIL=$(input "Your email" "you@example.com")
+    export USER_EMAIL=$USER_EMAIL
+fi
+
 run_profile

@@ -19,6 +19,7 @@ include_modules=(
     pkgs/cli/lesspipe
     pkgs/cli/lm-sensors
     pkgs/cli/lshw
+    pkgs/cli/msmtp
     pkgs/cli/smartmontools
     pkgs/cli/tealdeer
     pkgs/cli/tmux
@@ -31,9 +32,9 @@ include_modules=(
     pkgs/security/fail2ban
     pkgs/security/firewalld
     pkgs/security/unbound
-    pkgs/cli/msmtp
     pkgs/security/aide
     pkgs/security/rkhunter
+    pkgs/security/logcheck
 
     pkgs/apps/nvim
     pkgs/apps/yazi
@@ -45,3 +46,5 @@ run_profile() {
         "$REPO_DIR/modules/$module.sh"
     done
 }
+
+export needs_email=true

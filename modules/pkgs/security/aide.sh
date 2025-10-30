@@ -46,7 +46,11 @@ echo ""
 
 SCRIPTS_DIR=$(dirname "$DOTFILE_PATH")
 
-email=$(input "Email address (used to send findings)" "you@example.com")
+if [[ "$USER_EMAIL" ]]; then
+    email="$USER_EMAIL"
+else
+    email=$(input "Email address (used to send findings)" "you@example.com")
+fi
 sed -e "s/{{AIDE_EMAIL}}/$email/" "$SCRIPTS_DIR/aide-check.sh" \
     | sudo tee "/usr/local/bin/aide-check.sh" >/dev/null
 

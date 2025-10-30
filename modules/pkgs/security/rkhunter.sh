@@ -18,7 +18,12 @@ backup_config "$CONFIG_PATH" true
 
 sudo mkdir -p $(dirname "$CONFIG_PATH")
 
-email=$(input "Email address (used to send findings)" "you@example.com")
+
+if [[ "$USER_EMAIL" ]]; then
+    email="$USER_EMAIL"
+else
+    email=$(input "Email address (used to send findings)" "you@example.com")
+fi
 sed -e "s/{{EMAIL}}/$email/" "$DOTFILE_PATH" | sudo tee "$CONFIG_PATH" >/dev/null
 
 echo "Checking config file..."
