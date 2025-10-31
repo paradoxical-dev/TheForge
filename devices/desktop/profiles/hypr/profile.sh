@@ -36,6 +36,8 @@ include_modules=(
     pkgs/security/rkhunter
     pkgs/security/logcheck
 
+    drivers/graphics/init
+
     pkgs/apps/nvim
     pkgs/apps/yazi
 )

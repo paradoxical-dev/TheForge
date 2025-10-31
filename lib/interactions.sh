@@ -69,8 +69,24 @@ choose_one() {
     --header="$header" "${choices[@]}"
 }
 
+# allow multiple selections of given options
+# ---
+# @param {string} header prompt
+# @param {function | command} callback for selections
+# @param {list} list of choices
+choose_multi() {
+    local header="$1"
+    shift 1
+    local choices=("$@")
+
+    $gum choose --cursor.foreground "#0fe" \
+    --selected.foreground "#0fe" --header.foreground "#f0e" \
+    --header="$header" --no-limit "${choices[@]}"
+}
+
 export -f greet
 export -f gum_confirm
 export -f input
 export -f inform_msg
 export -f choose_one
+export -f choose_multi

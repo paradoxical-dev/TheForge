@@ -51,6 +51,7 @@ done
 
 #-----handle opts 
 
+export REPO_DIR=$REPO_DIR
 export DEVICE=$(echo "$PROFILE" | cut -d'/' -f1) 
 export DEVICE_DIR="$REPO_DIR/devices/$DEVICE"
 export PROFILE=$(echo "$PROFILE" | cut -d'/' -f2) 
