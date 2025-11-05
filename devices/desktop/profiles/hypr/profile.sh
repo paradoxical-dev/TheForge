@@ -37,6 +37,7 @@ include_modules=(
     pkgs/security/logcheck
 
     drivers/graphics/init
+    drivers/wayland
 
     pkgs/apps/nvim
     pkgs/apps/yazi

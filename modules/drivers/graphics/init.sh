@@ -16,5 +16,15 @@ echo ""
 SCRIPT_PATH="$REPO_DIR/modules/drivers/graphics"
 
 for vendor in $gpu_vendors; do
-    "$SCRIPT_PATH/$vendor.sh"
+    if [[ "$vendor" == "nvidia" ]]; then
+        gum_confirm "Nvidia selected, use proprietary drivers?"
+        use_prop=$?
+        if [[ $use_prop -eq 0 ]]; then
+            "$SCRIPT_PATH/nvidia.sh"
+        else
+            "$SCRIPT_PATH/nouveau.sh"
+        fi
+    else
+        "$SCRIPT_PATH/$vendor.sh"
+    fi
 done
