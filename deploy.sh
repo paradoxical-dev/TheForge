@@ -10,42 +10,48 @@ REPO_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 PROFILE="" 
 PROFILE_DIR="" 
+LAPTOP=1
 while [[ $# -gt 0 ]]; do 
     case "$1" in 
         --help) 
             echo "Usage: ./deploy.sh [OPTIONS]" 
             echo "" 
             echo "Options:" 
-            echo " --profile <name> Specify the profile to use (e.g., desktop/hypr, server/minimal)." 
-            echo " --list-profiles List available profiles by category and exit." 
-            echo " --help Show this help message and exit." 
+            echo " --profile <name>    Specify the profile to use (e.g., desktop/hypr, server/minimal)." 
+            echo " --laptop            Installs laptop specific packages for power management" 
+            echo " --list-profiles     List available profiles by category and exit." 
+            echo " --help              Show this help message and exit." 
             echo "" 
             echo "Examples:" 
             echo " .dotfiles/deploy.sh --profile desktop/hypr" 
             echo " ./deploy.sh --list-profiles" 
             exit 0
-            ;;
+        ;;
         --list-profiles) 
             echo "Desktop:" 
-            echo " Hyprland (desktop/hypr)" 
-            echo " Minimal (desktop/minimal)" 
-            echo " GNOME (desktop/gnome)" 
-            echo " KDE (desktop/kde)" 
+            echo " Hyprland   (desktop/hypr)" 
+            echo " Minimal    (desktop/minimal)" 
+            echo " GNOME      (desktop/gnome)" 
+            echo " KDE        (desktop/kde)" 
             echo " " 
             echo "Server:" 
             echo " " 
             echo "Raspberry Pi:" 
             echo " " 
             exit 0 
-            ;; 
+        ;; 
         --profile) 
             PROFILE="$2" 
             shift 2 
-            ;; 
+        ;; 
+        --laptop)
+            LAPTOP=1
+            shift 1
+        ;;
         *) 
             echo "Unknown option: $1" 
             exit 1 
-            ;; 
+        ;; 
     esac 
 done 
 
@@ -114,3 +120,9 @@ if [[ "$needs_email" == true ]]; then
 fi
 
 run_profile
+
+# TODO: move to specific profiles
+cp "$REPO_DIR/wallpapers/main.jpg" "$HOME/.current_wallpaper"
+
+echo -e "${green}Install complete!${color_end}"
+echo ""

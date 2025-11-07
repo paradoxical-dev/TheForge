@@ -1,0 +1,7 @@
+allow_images=true
+allow_markup=true
+height=450px
+prompt=where we droppin...
+term=kitty
+width=400px
+stylesheet=~/.config/wofi/main.css

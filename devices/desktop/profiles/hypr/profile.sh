@@ -20,14 +20,18 @@ include_modules=(
     pkgs/cli/lm-sensors
     pkgs/cli/lshw
     pkgs/cli/msmtp
+    pkgs/cli/ripgrep
     pkgs/cli/smartmontools
     pkgs/cli/tealdeer
     pkgs/cli/tmux
+    pkgs/cli/unzip
     pkgs/cli/wikiman
 
     pkgs/hardware/network-manager
     pkgs/hardware/bluetooth
     pkgs/hardware/pipewire
+    pkgs/hardware/brightnessctl
+    pkgs/hardware/acpi
 
     pkgs/security/fail2ban
     pkgs/security/firewalld
@@ -36,11 +40,32 @@ include_modules=(
     pkgs/security/rkhunter
     pkgs/security/logcheck
 
+    pkgs/services/dbus
+
     drivers/graphics/init
     drivers/wayland
 
+    pkgs/wm/hyprland
+    pkgs/de/wl-clipboard
+    pkgs/de/grim.sh
+    pkgs/de/slurp.sh
+    pkgs/de/gtk
+    pkgs/de/hypridle
+    pkgs/de/hyprlock
+    pkgs/de/hyprpaper
+    pkgs/de/hyprpicker
+    pkgs/de/hyprsunset
+    pkgs/fonts/jetbrains
+    pkgs/fonts/victor-mono
+    pkgs/icons/breeze-icons
+    pkgs/cursors/bibata
+
+    pkgs/langs/node
+
     pkgs/apps/nvim
     pkgs/apps/yazi
+    pkgs/apps/kitty
+    pkgs/apps/firefox
 )
 
 run_profile() {
@@ -48,6 +73,13 @@ run_profile() {
         sleep 1
         "$REPO_DIR/modules/$module.sh"
     done
+
+    if [ $LAPTOP -eq 0 ]; then
+        echo -e "${yellow}Laptop installation detected!${color_end}"
+        echo ""
+
+        "$REPO_DIR/modules/pkgs/hardware/ppd.sh"
+    fi
 }
 
 export needs_email=true

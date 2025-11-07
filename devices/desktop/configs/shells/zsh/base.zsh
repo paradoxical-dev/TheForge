@@ -138,6 +138,9 @@ alias gg="lazygit"
 
 #=== NVIM MANPAGER ===#
 export MANPAGER='nvim +Man!'
+
+#=== FIREFOX + WAYLAND ===#
+export MOZ_ENABLE_WAYLAND=1
                                       
 
 #============================#
