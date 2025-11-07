@@ -18,7 +18,7 @@ backup_config "$CONFIG_PATH"
 
 mkdir -p $(dirname "$CONFIG_PATH")
 
-cp $DOTFILE_PATH $CONFIG_PATH
+cp "$DOTFILE_PATH" "$CONFIG_PATH"
 
 echo -e "${green}tmux config copied into ~/.config/tmux/tmux.conf${color_end}"
 echo ""

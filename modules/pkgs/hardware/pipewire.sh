@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: Update configs with openrc startup scripts for pipewire
-
 set -e
 
 echo "Installing pipewire..."
@@ -18,4 +16,9 @@ echo ""
 
 user=$(whoami)
 sudo usermod -aG pipewire "$user"
+
+echo "Installing wireplumber..."
+echo ""
+
+install_pkg "wireplumber" "media-video/wireplumber"
 echo ""
