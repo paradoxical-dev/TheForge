@@ -16,6 +16,8 @@ echo ""
 
 unmask_pkg "xdg-desktop-portal-hyprland" "gui-libs/xdg-desktop-portal-hyprland" "~amd64"
 echo ""
+unmask_pkg "sdbus-c++" "dev-cpp/sdbus-c++" "~amd64"
+echo ""
 install_pkg "xdg-desktop-portal-hyprland" "gui-libs/xdg-desktop-portal-hyprland"
 echo ""
 
@@ -25,18 +27,16 @@ echo ""
 echo "Copying config for hyprland..."
 echo ""
 
-CONFIG_PATH="$HOME/.config/hypr"
+CONFIG_PATH="$HOME/.config"
 DOTFILE_PATH="$PROFILE_DIR/configs/hypr"
 
-backup_config "$CONFIG_PATH"
-
-mkdir -p "$CONFIG_PATH"
+backup_config "$CONFIG_PATH/hypr"
 
 cp -r "$DOTFILE_PATH" "$CONFIG_PATH"
 
 THEME_FILE="$DOTFILE_PATH/conf/themes/main.conf"
 
-cp "$THEME_FILE" "$CONFIG_PATH/conf/themes/current.conf"
+cp "$THEME_FILE" "$CONFIG_PATH/hypr/conf/themes/current.conf"
 
 echo -e "${green}Hyprland config copied into $CONFIG_PATH${color_end}"
 echo ""
@@ -60,7 +60,7 @@ sudo rc-service elogind start
 echo "Installing SDDM..."
 echo ""
 
-install_pkg "SDDM" "x11-misc/sddm"
+install_pkg "sddm" "x11-misc/sddm"
 echo ""
 
 echo "Copying config for SDDM..."

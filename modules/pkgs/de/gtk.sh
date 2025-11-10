@@ -32,6 +32,8 @@ DOTFILE_PATH="$DEVICE_DIR/configs/gtk/gtk-3.0/main.ini"
 
 backup_config "$CONFIG_PATH"
 
+mkdir -p $(dirname "$CONFIG_PATH")
+
 cp "$DOTFILE_PATH" "$CONFIG_PATH"
 
 echo -e "${green}GTK 3.0 config copied into $CONFIG_PATH${color_end}"
@@ -44,6 +46,8 @@ CONFIG_PATH="$HOME/.config/gtk-4.0/settings.ini"
 DOTFILE_PATH="$DEVICE_DIR/configs/gtk/gtk-4.0/main.ini"
 
 backup_config "$CONFIG_PATH"
+
+mkdir -p $(dirname "$CONFIG_PATH")
 
 cp "$DOTFILE_PATH" "$CONFIG_PATH"
 

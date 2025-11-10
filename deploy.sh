@@ -62,6 +62,7 @@ export DEVICE=$(echo "$PROFILE" | cut -d'/' -f1)
 export DEVICE_DIR="$REPO_DIR/devices/$DEVICE"
 export PROFILE=$(echo "$PROFILE" | cut -d'/' -f2) 
 export PROFILE_DIR="$REPO_DIR/devices/$DEVICE/profiles/$PROFILE" 
+export LAPTOP=$LAPTOP
 
 #----------colors 
 

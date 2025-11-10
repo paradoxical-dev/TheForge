@@ -10,7 +10,7 @@ CURSOR_URL="https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bib
 CURSOR_DIR="$HOME/.local/share/icons"
 TMP_DIR="/tmp/${CURSOR_NAME}"
 
-if [[ -d "${CURSOR_DIR}/Bibata-"* ]]; then
+if [[ -d "${CURSOR_DIR}"/Bibata-* ]]; then
     echo -e "${yellow}$CURSOR_NAME already installed. Skipping...${color_end}"
     echo ""
     exit 0
