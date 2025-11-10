@@ -141,7 +141,34 @@ export MANPAGER='nvim +Man!'
 
 #=== FIREFOX + WAYLAND ===#
 export MOZ_ENABLE_WAYLAND=1
-                                      
+
+#=== NVM ===#
+export NVM_DIR="$HOME/.config/nvm"
+
+#---------------expose node version in path for LSPs
+version="v25.1.0" # WARN: should be updated to latest version
+node_path="$NVM_DIR/versions/node/$version"
+if [[ ! -d "$node_path" ]]; then
+    echo "Required node version ($version) not installed."
+    echo "Loading nvm..."
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+    echo "Installing now..."
+    nvm install "$version"
+fi
+export PATH="$node_path/bin:$PATH"
+
+#---------------lazy-load NVM for interactive and remove custom functions
+lazy_nvm() {
+  echo "Setting up nvm..."
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+}
+
+nvm()  { lazy_nvm; nvm "$@"; }
+node() { lazy_nvm; node "$@"; }
+npm()  { lazy_nvm; npm "$@"; }
+npx()  { lazy_nvm; npx "$@"; }
+
 
 #============================#
 #        ______      ____    #
@@ -160,6 +187,17 @@ eval "$(fzf --zsh)"
 zstyle ":completion:*" menu no
 zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza -1 --color=always $realpath"
 zstyle ":fzf-tab:*" use-fzf-default-opts yes
+
+#---------------reapply fzf bindings after vi-mode resets keymaps
+autoload -Uz add-zsh-hook
+
+_zvm_after_init_fzf_binds() {
+  if typeset -f fzf-history-widget >/dev/null; then
+    bindkey -M vicmd '^R' fzf-history-widget
+    bindkey -M viins '^R' fzf-history-widget
+  fi
+}
+add-zsh-hook precmd _zvm_after_init_fzf_binds
 
 # dynamic theme switching
 update_fzf_theme() {
