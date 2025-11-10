@@ -47,8 +47,8 @@ include_modules=(
 
     pkgs/wm/hyprland
     pkgs/de/wl-clipboard
-    pkgs/de/grim.sh
-    pkgs/de/slurp.sh
+    pkgs/de/grim
+    pkgs/de/slurp
     pkgs/de/gtk
     pkgs/de/hypridle
     pkgs/de/hyprlock
@@ -65,6 +65,7 @@ include_modules=(
     pkgs/apps/nvim
     pkgs/apps/yazi
     pkgs/apps/kitty
+    pkgs/apps/wofi
     pkgs/apps/firefox
 )
 
@@ -74,7 +75,7 @@ run_profile() {
         "$REPO_DIR/modules/$module.sh"
     done
 
-    if [ $LAPTOP -eq 0 ]; then
+    if [ $LAPTOP -eq 1 ]; then
         echo -e "${yellow}Laptop installation detected!${color_end}"
         echo ""
 
