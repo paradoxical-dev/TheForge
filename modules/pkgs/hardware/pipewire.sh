@@ -6,7 +6,7 @@ echo "Installing pipewire..."
 echo ""
 
 flags="man sound-server v4l modemmanager"
-edit_use "pipewire" "media-video/pipewire" ""
+edit_use "pipewire" "media-video/pipewire" "$flags"
 
 install_pkg "pipewire" "media-video/pipewire"
 echo ""
