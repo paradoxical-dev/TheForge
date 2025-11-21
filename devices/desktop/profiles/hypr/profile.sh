@@ -14,6 +14,7 @@ include_modules=(
     pkgs/cli/fd
     pkgs/cli/figlet
     pkgs/cli/file
+    pkgs/cli/ftp
     pkgs/cli/fzf
     pkgs/cli/jq
     pkgs/cli/lesspipe
@@ -55,6 +56,7 @@ include_modules=(
     pkgs/de/hyprpaper
     pkgs/de/hyprpicker
     pkgs/de/hyprsunset
+    pkgs/de/quickshell
     pkgs/fonts/jetbrains
     pkgs/fonts/victor-mono
     pkgs/icons/breeze-icons
