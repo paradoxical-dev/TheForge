@@ -145,8 +145,10 @@ export MOZ_ENABLE_WAYLAND=1
 #=== NVM ===#
 export NVM_DIR="$HOME/.config/nvm"
 
-#---------------expose node version in path for LSPs
-version="v25.1.0" # WARN: should be updated to latest version
+#---------------ensure node version is present in path for LSPs
+
+# WARN: should be updated to latest version
+version="v25.1.0"
 node_path="$NVM_DIR/versions/node/$version"
 if [[ ! -d "$node_path" ]]; then
     echo "Required node version ($version) not installed."
@@ -185,10 +187,9 @@ npx()  { lazy_nvm; npx "$@"; }
 #=== BASE ===#
 eval "$(fzf --zsh)"
 zstyle ":completion:*" menu no
-zstyle ":fzf-tab:complete:cd:*" fzf-preview "eza -1 --color=always $realpath"
 zstyle ":fzf-tab:*" use-fzf-default-opts yes
 
-#---------------reapply fzf bindings after vi-mode resets keymaps
+# Reapply fzf bindings after zsh-vi-mode resets keymaps
 autoload -Uz add-zsh-hook
 
 _zvm_after_init_fzf_binds() {
@@ -197,6 +198,8 @@ _zvm_after_init_fzf_binds() {
     bindkey -M viins '^R' fzf-history-widget
   fi
 }
+
+# Run it after zsh-vi-mode finishes initialization
 add-zsh-hook precmd _zvm_after_init_fzf_binds
 
 # dynamic theme switching
@@ -225,22 +228,26 @@ update_fzf_theme() {
 # update_fzf_theme
 
 #=== FZF PREVIEWS ===#
+
+# Directories
+zstyle ":fzf-tab:complete:cd:*" fzf-preview 'eza -1 --color=always $realpath'
+
 # Service status
-zstyle ":fzf-tab:complete:rc-service-*:*" fzf-preview "rc-service $word status"
+zstyle ":fzf-tab:complete:rc-service:*" fzf-preview 'rc-service $word status'
 
 # File content
-zstyle ":fzf-tab:complete:*:*" fzf-preview "less $realpath"
-export LESSOPEN="|$HOME/.dotfiles/scripts/etc/lessfilter.sh %s"
+zstyle ":fzf-tab:complete:*:*" fzf-preview 'less $realpath'
+export LESSOPEN="|$HOME/scripts/lessfilter.sh %s"
 zstyle ":fzf-tab:complete:*:options" fzf-preview 
 zstyle ":fzf-tab:complete:*:argument-1" fzf-preview
 
 # Env vars
 zstyle ":fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*" \
-fzf-preview "echo ${(P)word}"
+fzf-preview 'echo ${(P)word}'
 
 # Dynamic man pages for commands
 zstyle ":fzf-tab:complete:-command-:*" fzf-preview \
-"(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}""
+'(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
 
 
 #=================================================#
