@@ -17,3 +17,9 @@ echo ""
 
 install_pkg "eix" "app-portage/eix"
 echo ""
+
+echo "Initializing eix cache..."
+echo ""
+
+eix-update
+echo ""
