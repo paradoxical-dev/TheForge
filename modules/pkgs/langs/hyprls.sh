@@ -14,4 +14,4 @@ echo ""
 go install github.com/hyprland-community/hyprls/cmd/hyprls@latest
 echo ""
 
-sudo mv $HOME/go/bin/hyprls /usr/local/bin/
+sudo cp $HOME/go/bin/hyprls /usr/local/bin/
