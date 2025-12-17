@@ -142,6 +142,12 @@ export MANPAGER='nvim +Man!'
 #=== FIREFOX + WAYLAND ===#
 export MOZ_ENABLE_WAYLAND=1
 
+#=== ADD GO BINARIES ===#
+export PATH="$PATH:$HOME/go/bin"
+
+#=== ADD RUST BINARIES ===#
+export PATH="$PATH:$HOME/.cargo/bin"
+
 #=== NVM ===#
 export NVM_DIR="$HOME/.config/nvm"
 
