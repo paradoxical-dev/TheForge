@@ -1,0 +1,65 @@
+[
+    // NOTE: Many bindings can also be found in ./nvim/init.lua
+
+    // BUFFER NAV
+    {
+        "key": "] b",
+        "command": "workbench.action.nextEditorInGroup",
+        "when": "neovim.mode != insert && !terminalFocus"
+    },
+    {
+        "key": "[ b",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "neovim.mode != insert && !terminalFocus"
+    },
+
+    // SIDEBAR
+    {
+        "key": "ctrl+left",
+        "command": "workbench.action.toggleSidebarVisibility"
+        // "when": "!inputFocus"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    
+    // COMMANDS (META X)
+    {
+        "key": "alt+x",
+        "command": "workbench.action.showCommands"
+    },
+    
+    // TERMINAL
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    
+    // QOL
+    {
+        "key": "ctrl+j",        
+        "command": "quickInput.next",
+        "when": "inQuickInput"
+    },
+    {
+        "key": "ctrl+k",        
+        "command": "quickInput.previous",
+        "when": "inQuickInput"
+    },
+    {
+        "key": "ctrl+j",        
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+k",        
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "space y",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "editor.hasSelection"
+    }
+]

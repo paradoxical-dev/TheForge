@@ -1,0 +1,36 @@
+/* custom italic font */
+.mtki {
+    font-family: 'Victor Mono';
+    font-weight: 600;
+}
+
+/* bolder bolds */
+.mtkb {
+    font-weight: 900;
+}
+
+/* sticky scroll shadow */
+.sticky-widget {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* top bar customizations */
+.window-appicon {
+    visibility: hidden;
+}
+
+/* increase base font size */
+.monaco-workbench {
+    font-size: 14px !important;
+}
+
+/* file tree */
+.explorer-item .label-name {
+    /* font-family: 'JetBrainsMono Nerd Font'; */
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+.explorer-folders-view .monaco-list-row {
+    padding-left: 10px;
+}

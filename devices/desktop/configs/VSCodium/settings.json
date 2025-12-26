@@ -1,0 +1,343 @@
+{
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.suggest.preview": false,
+  "editor.suggest.showInlineDetails": true,
+  "editor.suggest.showFiles": true,
+  "editor.suggest.showDetails": true,
+  "explorer.confirmDelete": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": true,
+  "zenMode.showTabs": "none",
+  "markdown.preview.lineHeight": 2.0,
+  "terminal.integrated.defaultProfile.linux": "Nushell",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.enableImages": true,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "terminal.integrated.customGlyphs": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.copyOnSelection": true,
+  "security.promptForLocalFileProtocolHandling": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "debug.javascript.autoAttachFilter": "disabled",
+  "window.titleBarStyle": "custom",
+  "window.title": " ",
+  "workbench.activityBar.location": "hidden",
+  "editor.cursorStyle": "block",
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "relative",
+  "editor.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "terminal.integrated.smoothScrolling": true,
+  "window.menuBarVisibility": "compact",
+  "workbench.layoutControl.enabled": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "window.commandCenter": false,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "material-icon-theme.hidesExplorerArrows": true,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.indent": 16,
+  "explorer.compactFolders": false,
+  "workbench.editor.showTabs": "single",
+  "workbench.startupEditor": "none",
+  "breadcrumbs.filePath": "off",
+  "vscode_custom_css.imports": [
+    "file://${userHome}/.config/VSCodium/User/custom-css/test.css"
+  ],
+  "editor.fontSize": 16,
+  "editor.lineHeight": 2.5,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono', 'Symbols Nerd Font'",
+  "terminal.integrated.fontSize": 17,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Monochromator Dark",
+  "material-code.primaryColor": "#664C73",
+  "workbench.colorCustomizations": {
+    "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
+    "editorOverviewRuler.selectionHighlightForeground": "#0000",
+    "editorOverviewRuler.rangeHighlightForeground": "#0000",
+    "editorOverviewRuler.wordHighlightForeground": "#0000",
+    "editorOverviewRuler.bracketMatchForeground": "#0000",
+    "editorOverviewRuler.findMatchForeground": "#0000",
+    "editorOverviewRuler.modifiedForeground": "#0000",
+    "editorOverviewRuler.deletedForeground": "#0000",
+    "editorOverviewRuler.warningForeground": "#0000",
+    "editorOverviewRuler.addedForeground": "#0000",
+    "editorOverviewRuler.errorForeground": "#0000",
+    "editorOverviewRuler.infoForeground": "#0000",
+    "editorOverviewRuler.border": "#0000",
+    "editor.background": "#111318",
+    "sideBar.background": "#1d2024",
+    "sideBarSectionHeader.background": "#191c20",
+    "breadcrumb.background": "#1d2024",
+    "breadcrumbPicker.background": "#1d2024",
+    "statusBar.background": "#1d2024",
+    "commandCenter.background": "#1d2024",
+    "titleBar.activeBackground": "#1d2024",
+    "button.background": "#a5c8ff",
+    "button.border": "#a5c8ff",
+    "button.foreground": "#37393e",
+    "extensionButton.background": "#a5c8ff",
+    "extensionButton.foreground": "#37393e",
+    "dropdown.background": "#1d2024",
+    "editorSuggestWidget.background": "#1d2024",
+    "list.activeSelectionBackground": "#a5c8ff30",
+    "list.focusBackground": "#32353a90",
+    "list.hoverBackground": "#32353a90",
+    "input.background": "#32353a",
+    "panel.background": "#1d2024",
+    "focusBorder": "#1d2024",
+    "sideBar.border": "#111318",
+    "statusBar.border": "#1d2024",
+    "titleBar.border": "#1d2024",
+    "window.activeBorder": "#1d2024",
+    "window.inactiveBorder": "#1d2024",
+    "editorSuggestWidget.border": "#1d2024",
+    "editor.lineHighlightBorder": "#111318",
+    "editorGroup.border": "#111318",
+    "list.highlightForeground": "#dabde2",
+    "editorSuggestWidget.highlightForeground": "#dabde2",
+    "editorSuggestWidget.focusHighlightForeground": "#dabde2",
+    "debugToolBar.background": "#1d2024",
+    "debugToolBar.border": "#1d2024",
+    "statusBar.debuggingBackground": "#1d2024",
+    "editor.focusedStackFrameHighlightBackground": "#dabde240",
+    "editor.stackFrameHighlightBackground": "#dabde240",
+    "debugView.valueChangedHighlight": "#dabde2",
+    "debugIcon.breakpointForeground": "#e1e2e9",
+    "debugIcon.continueForeground": "#a5c8ff",
+    "debugIcon.stepIntoForeground": "#a5c8ff",
+    "debugIcon.stepBackForeground": "#a5c8ff",
+    "debugIcon.stepOutForeground": "#a5c8ff",
+    "debugIcon.stepOverForeground": "#a5c8ff",
+    "debugIcon.restartForeground": "#52b47b",
+    "debugIcon.stopForeground": "#ff6464",
+    "debugConsole.errorForeground": "#ffb4ab",
+    "debugConsole.infoForeground": "#a5c8ff",
+    "debugConsole.warningForeground": "#f9e2af",
+    "debugConsole.sourceForeground": "#f7d9ff",
+    "debugTokenExpression.number": "#dabde2",
+    "debugTokenExpression.boolean": "#dabde2",
+    "debugTokenExpression.string": "#dabde2",
+    "debugTokenExpression.type": "#d8e3f8",
+    "debugTokenExpression.name": "#a5c8ff",
+    "editorIndentGuide.activeBackground1": "#32353a",
+    "editorIndentGuide.background1": "#1d2024",
+    "editor.findMatchBackground": "#dabde2",
+    "editor.findMatchHighlightBackground": "#dabde240",
+    "editor.hoverHighlightBackground": "#32353a90",
+    "editorHoverWidget.background": "#1d2024",
+    "editorHoverWidget.border": "#1d2024",
+    "editor.selectionBackground": "#32353a90",
+    "foreground": "#e1e2e9",
+    "editor.foreground": "#e1e2e9",
+    "editor.wordHighlightBackground": "#32353a90",
+    "editor.wordHighlightStrongBackground": "#32353a90",
+    "editor.symbolHighlightBackground": "#32353a90",
+    "editor.wordHighlightTextBackground": "#32353a90",
+    "editorError.foreground": "#ff6464",
+    "list.errorForeground": "#ff6464",
+    "errorForeground": "#ff6464",
+    "errorLens.errorForeground": "#ff6464",
+    "errorLens.errorMessageBackground": "#e4545419",
+    "editorWarning.foreground": "#ecd487",
+    "list.warningForeground": "#ecd487",
+    "errorLens.warningForeground": "#ecd487",
+    "errorLens.warningMessageBackground": "#ffd52f19",
+    "editorInfo.foreground": "#4dbbd7",
+    "errorLens.infoForeground": "#4dbbd7",
+    "errorLens.infoMessageBackground": "#00b7e419",
+    "editorHint.foreground": "#52b47b",
+    "errorLens.hintForeground": "#52b47b",
+    "errorLens.hintMessageBackground": "#17a2a219",
+    "terminal.background": "#111318",
+    "terminal.foreground": "#e1e2e9",
+    "terminal.border": "#1d2024",
+    "terminal.tab.activeBorder": "#1d2024",
+    "terminal.ansiBlack": "#282a2f",
+    "terminal.ansiBrightBlack": "#37393e",
+    "terminal.ansiRed": "#ffb4ab",
+    "terminal.ansiBrightRed": "#93000a",
+    "terminal.ansiGreen": "#dabde2",
+    "terminal.ansiBrightGreen": "#f7d9ff",
+    "terminal.ansiYellow": "#f9e2af",
+    "terminal.ansiBrightYellow": "#f9e2af",
+    "terminal.ansiBlue": "#a5c8ff",
+    "terminal.ansiBrightBlue": "#3c6090",
+    "terminal.ansiMagenta": "#a5c8ff",
+    "terminal.ansiBrightMagenta": "#d4e3ff",
+    "terminal.ansiCyan": "#bcc7dc",
+    "terminal.ansiBrightCyan": "#d8e3f8",
+    "terminal.ansiWhite": "#e1e2e9",
+    "terminal.ansiBrightWhite": "#f0f0f0"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "punctuation.definition.string.begin",
+          "punctuation.definition.string.end",
+          "punctuation.definition.string",
+          "punctuation.definition.raw",
+          "markup.inline.raw"
+        ],
+        "settings": {
+          "foreground": "#a5c8ff"
+        }
+      },
+      {
+        "scope": [
+          "markup.underline"
+        ],
+        "settings": {
+          "foreground": "#dabde2",
+          "fontStyle": "underline"
+        }
+      },
+      {
+        "scope": [
+          "constant.other.placeholder",
+          "constant.character.escape",
+          "constant.language"
+        ],
+        "settings": {
+          "foreground": "#dabde2",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": [
+          "variable.parameter"
+        ],
+        "settings": {
+          "foreground": "#dabde2",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "variable.other"
+        ],
+        "settings": {
+          "foreground": "#e1e2e9",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "keyword.other.unit"
+        ],
+        "settings": {
+          "foreground": "#a5c8ff"
+        }
+      }
+    ],
+    "numbers": "#dabde2",
+    "strings": "#a5c8ff"
+  },
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "number": "#a5c8ff",
+      "string": "#a5c8ff",
+      "boolean": "#dabde2"
+    }
+  },
+  "everforest.darkWorkbench": "flat",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/VSCodium/User/nvim/init.lua",
+  "todoTomorrow.patterns": [
+    {
+      "keywords": [
+        "todo",
+        "note",
+        "info"
+      ],
+      "fontWeight": "bold",
+      "dark": {
+        "backgroundColor": "#2f2f49",
+        "color": "#8caaee"
+      },
+      "light": {
+        "backgroundColor": "#cdd6f4",
+        "color": "#1e66f5"
+      }
+    },
+    {
+      "keywords": [
+        "fixme",
+        "fix",
+        "warning"
+      ],
+      "fontWeight": "bold",
+      "dark": {
+        "backgroundColor": "#3b2f0b",
+        "color": "#e5c890"
+      },
+      "light": {
+        "backgroundColor": "#ffecb5",
+        "color": "#df8f00"
+      }
+    },
+    {
+      "keywords": [
+        "hack",
+        "bug",
+        "xxx"
+      ],
+      "fontWeight": "bold",
+      "dark": {
+        "backgroundColor": "#4c2c31",
+        "color": "#e78284"
+      },
+      "light": {
+        "backgroundColor": "#fcd7d7",
+        "color": "#d20f39"
+      }
+    },
+    {
+      "keywords": [
+        "important",
+        "critical"
+      ],
+      "fontWeight": "bold",
+      "dark": {
+        "backgroundColor": "#45475a",
+        "color": "#f2d5cf"
+      },
+      "light": {
+        "backgroundColor": "#e9ecef",
+        "color": "#5c2e2e"
+      }
+    }
+  ],
+  "database-client.telemetry.usesOnlineServices": false,
+  "flashpost.customDataLocation": "/home/gitmoney/.local/share",
+  "qt-qml.qmlls.useQmlImportPathEnvVar": true,
+  "qt-qml.qmlls.customExePath": "/home/gitmoney/.local/share/nvim/mason/bin/qmlls",
+  "qt-qml.doNotAskForQmllsDownload": true,
+  "errorLens.enabledDiagnosticLevels": [
+    "info",
+    "error",
+    "warning"
+  ],
+  "errorLens.borderRadius": "15px",
+  "errorLens.fontStyleItalic": true,
+  "errorLens.messageBackgroundMode": "message",
+  "errorLens.padding": "10px",
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconSize": "70%",
+  "errorLens.fontFamily": "Victor Mono",
+  "errorLens.gutterIconSet": "defaultOutline",
+  "leetcode.workspaceFolder": "$HOME/.local/share/leetcode",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commentDescription": false,
+  "leetcode.hint.commandShortcut": false,
+  "nixEnvSelector.useFlakes": true
+}
