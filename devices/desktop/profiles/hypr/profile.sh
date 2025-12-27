@@ -2,10 +2,13 @@
 
 include_modules=(
     pkgs/shells/zsh
+    pkgs/shells/nushell
 
     pkgs/cli/bat
     pkgs/cli/bc
     pkgs/cli/bottom
+    pkgs/cli/carnage
+    pkgs/cli/cava
     pkgs/cli/chafa
     pkgs/cli/ddgr
     pkgs/cli/exiftool
@@ -16,10 +19,15 @@ include_modules=(
     pkgs/cli/file
     pkgs/cli/ftp
     pkgs/cli/fzf
+    pkgs/cli/gowall
+    pkgs/cli/jiq
+    pkgs/cli/jless
     pkgs/cli/jq
+    pkgs/cli/lazydocker
     pkgs/cli/lesspipe
     pkgs/cli/lm-sensors
     pkgs/cli/lshw
+    pkgs/cli/matugen
     pkgs/cli/msmtp
     pkgs/cli/ripgrep
     pkgs/cli/smartmontools
@@ -28,18 +36,18 @@ include_modules=(
     pkgs/cli/unzip
     pkgs/cli/wikiman
 
-    pkgs/hardware/network-manager
-    pkgs/hardware/bluetooth
-    pkgs/hardware/pipewire
-    pkgs/hardware/brightnessctl
     pkgs/hardware/acpi
+    pkgs/hardware/bluetooth
+    pkgs/hardware/brightnessctl
+    pkgs/hardware/network-manager
+    pkgs/hardware/pipewire
 
+    pkgs/security/aide
     pkgs/security/fail2ban
     pkgs/security/firewalld
-    pkgs/security/unbound
-    pkgs/security/aide
-    pkgs/security/rkhunter
     pkgs/security/logcheck
+    pkgs/security/rkhunter
+    pkgs/security/unbound
 
     pkgs/services/dbus
 
@@ -49,8 +57,8 @@ include_modules=(
     pkgs/wm/hyprland
     pkgs/de/wl-clipboard
     pkgs/de/grim
-    pkgs/de/slurp
     pkgs/de/gtk
+    pkgs/de/slurp
     pkgs/de/hypridle
     pkgs/de/hyprlock
     pkgs/de/hyprpaper
@@ -61,14 +69,22 @@ include_modules=(
     pkgs/fonts/victor-mono
     pkgs/icons/breeze-icons
     pkgs/cursors/bibata
+    pkgs/de/end-4
 
     pkgs/langs/node
+    pkgs/langs/gdb
+    pkgs/langs/hyprls
+    pkgs/langs/lldb
 
-    pkgs/apps/nvim
-    pkgs/apps/yazi
-    pkgs/apps/kitty
-    pkgs/apps/wofi
+    pkgs/apps/blueman
+    pkgs/apps/docker
     pkgs/apps/firefox
+    pkgs/apps/kitty
+    pkgs/apps/nvim
+    pkgs/apps/obsidian
+    pkgs/apps/vscodium
+    pkgs/apps/wofi
+    pkgs/apps/yazi
 )
 
 run_profile() {
