@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: add wayland
 include_modules=(
     pkgs/shells/zsh
     pkgs/shells/nushell

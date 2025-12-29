@@ -62,3 +62,26 @@ sudo emerge -vuDN @world
 echo ""
 sudo emerge @preserved-rebuild
 echo ""
+
+echo "Installing plasma meta package..."
+echo ""
+
+edit_use "plasma-meta" "kde-plasma/plasma-meta" "grub thunderbolt rdp"
+echo ""
+edit_use "freerdp" "net-misc/freerdp" "server"
+echo ""
+
+install_pkg "plasma-meta" "kde-plasma/plasma-meta"
+echo ""
+
+echo "Installing qtwebsockets..."
+echo ""
+
+install_pkg "qtwebsockets" "dev-qt/qtwebsockets"
+echo ""
+
+echo "Installing python websockets..."
+echo ""
+
+install_pkg "websockets" "dev-python/websockets"
+echo ""

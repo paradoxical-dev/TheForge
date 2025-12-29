@@ -32,3 +32,5 @@ ln -s "$DOTFILE_DIR/settings.json" "$CONFIG_PATH/settings.json"
 ln -s "$DOTFILE_DIR/keybindings.json" "$CONFIG_PATH/keybindings.json"
 ln -s "$DOTFILE_DIR/nvim" "$CONFIG_PATH/nvim"
 ln -s "$DOTFILE_DIR/custom-css" "$CONFIG_PATH/custom-css"
+
+# TODO: add auto extension installation
