@@ -45,7 +45,7 @@ if ! -d "$HOME/.config"; then
     mkdir "$HOME/.config"
 fi
 
-git clone https://github.com/doomemacs/doomemacs "$HOME/.config/emacs"
+git clone --depth 1 https://github.com/doomemacs/doomemacs "$HOME/.config/emacs"
 echo ""
 
 echo "Installing Doom emacs..."
@@ -59,3 +59,5 @@ echo ""
 
 echo "Cloning Nexus config..."
 echo ""
+
+# TODO: make repo clone when remote
