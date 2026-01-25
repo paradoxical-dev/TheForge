@@ -63,3 +63,23 @@ echo ""
 # TODO: make repo clone when remote
 
 echo ""
+
+echo "Installing mdopen..."
+echo ""
+
+cargo install mdopen
+echo ""
+
+echo "Installing marked..."
+echo ""
+
+npm install -g marked
+echo ""
+
+echo "Installing mu with emacs support..."
+echo ""
+
+edit_use "mu" "net-mail/mu" "emacs"
+
+install_pkg "mu" "net-mail/mu"
+echo ""
