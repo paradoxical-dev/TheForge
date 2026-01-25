@@ -11,6 +11,12 @@ edit_use "xmlto" "app-text/xmlto" "text"
 install_pkg "hyprland" "gui-wm/hyprland"
 echo ""
 
+# TODO: update hyprland config
+unmask_pkg "hyprutils" "gui-libs/hyprutils" "~amd64"
+echo ""
+install_pkg "hyprutils" "gui-libs/hyprutils"
+echo ""
+
 install_pkg "xdg-desktop-portal" "sys-apps/xdg-desktop-portal"
 echo ""
 

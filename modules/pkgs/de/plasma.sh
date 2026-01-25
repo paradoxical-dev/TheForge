@@ -74,6 +74,9 @@ echo ""
 install_pkg "plasma-meta" "kde-plasma/plasma-meta"
 echo ""
 
+# INFO: These are dependencies for various plasmoids. Migfht need to moce them to external modules
+
+# for kurve
 echo "Installing qtwebsockets..."
 echo ""
 
@@ -84,4 +87,32 @@ echo "Installing python websockets..."
 echo ""
 
 install_pkg "websockets" "dev-python/websockets"
+echo ""
+
+# for control center
+echo "Installing KDE Connect..."
+echo ""
+
+install_pkg "kdeconnect" "kde-misc/kdeconnect"
+echo ""
+
+# for plasma-panel-colorizer
+echo "Installing Plasma Panel Colorizer..."
+echo ""
+
+install_pkg "pygobject" "dev-python/pygobject"
+echo ""
+
+install_pkg "spectacle" "kde-plasma/spectacle"
+echo ""
+
+install_pkg "dbus-python" "dev-python/dbus-python"
+echo ""
+
+if ! -d "$HOME/src"; then
+    mkdir "$HOME/src"
+fi
+
+git clone https://github.com/luisbocanegra/plasma-panel-colorizer "$HOME/src/plasma-panel-colorizer"
+$HOME/src/plasma-panel-colorizer/install.sh
 echo ""
