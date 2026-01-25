@@ -1,0 +1,21 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User {{EMAIL_ADDRESS}}
+PassCmd "pass show mail/gmail"
+TLSType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/Inbox
+SubFolders Verbatim
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Patterns "INBOX" "[Gmail]/Sent Mail" "[Gmail]/Trash"
+Create Near
+Expunge Both
+SyncState *
