@@ -1,6 +1,8 @@
 # TODO: Need to make most app configurations sym-linked
 # This is to remove the need to manually sync when updating
 
+# TODO: Refactor to support systemd
+
 #==============================#
 #            SETUP             # 
 #==============================# 
