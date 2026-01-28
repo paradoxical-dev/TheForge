@@ -70,10 +70,12 @@ echo ""
 cargo install mdopen
 echo ""
 
-echo "Installing marked..."
+echo "Installing pandoc..."
 echo ""
 
-npm install -g marked
+unmask_pkg "pandoc" "app-text/pandoc" "~amd64"
+echo ""
+install_pkg "pandoc" "app-text/pandoc"
 echo ""
 
 echo "Installing mu with emacs support..."
