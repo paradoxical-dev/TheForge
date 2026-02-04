@@ -87,3 +87,6 @@ edit_use "mu" "net-mail/mu" "emacs"
 
 install_pkg "mu" "net-mail/mu"
 echo ""
+
+install_pkg "vips" "media-libs/veps"
+echo ""
