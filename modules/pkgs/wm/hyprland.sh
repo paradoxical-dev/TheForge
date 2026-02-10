@@ -8,14 +8,53 @@ echo ""
 edit_use "sonnet" "kde-frameworks/sonnet" "qml"
 edit_use "xmlto" "app-text/xmlto" "text"
 
-install_pkg "hyprland" "gui-wm/hyprland"
+unmask_pkg "hyprwayland-scanner" "dev-util/hyprwayland-scanner" "~amd64"
+echo ""
+
+# TODO: hyprland package is being removed from main gentoo repo.
+# We need to use the hyproverlay repo instead
+
+# We unmask required packages from package.mask
+echo "gui-wm/hyprland::hyproverlay" | sudo tee "/etc/portage/package.unmask/hyprland" > /dev/null
+echo "dev-libs/hyprlang::hyproverlay" | sudo tee "/etc/portage/package.unmask/hyprlang" > /dev/null
+echo "dev-libs/hyprgraphics::hyproverlay" | sudo tee "/etc/portage/package.unmask/hyprgraphics" > /dev/null
+echo "gui-libs/aquamarine::hyproverlay" | sudo tee "/etc/portage/package.unmask/aquamarine" > /dev/null
+echo "gui-libs/hyprutils::hyproverlay" | sudo tee "/etc/portage/package.unmask/hyprutils" > /dev/null
+echo "dev-cpp/glaze::hyproverlay" | sudo tee "/etc/portage/package.unmask/glaze" > /dev/null
+
+unmask_pkg "hyprlang" "dev-libs/hyprlang::hyproverlay" "~amd64"
+echo ""
+unmask_pkg "hyprgraphics" "dev-libs/hyprgraphics::hyproverlay" "~amd64"
+echo ""
+unmask_pkg "aquamarine" "gui-libs/aquamarine::hyproverlay" "~amd64"
+echo ""
+unmask_pkg "hyprutils" "gui-libs/hyprutils::hyproverlay" "~amd64"
+echo ""
+unmask_pkg "hyprwire" "gui-libs/hyprwire" "~amd64"
+echo ""
+unmask_pkg "hyprland-guiutils" "gui-libs/hyprland-guiutils" "~amd64"
+echo ""
+unmask_pkg "glaze" "dev-cpp/glaze::hyproverlay" "~amd64"
+echo ""
+unmask_pkg "hyprtoolkit" "gui-libs/hyprtoolkit" "~amd64"
+echo ""
+
+# unmask_pkg "hyprland" "gui-wm/hyprland" "~amd64"
+# unmask_pkg "hyprland" "gui-wm/hyprland" "**"
+# echo ""
+# edit_use "hyprland" "gui-wm/hyprland" "qtutils"
+
+install_pkg "hyprland" "gui-wm/hyprland::hyproverlay"
 echo ""
 
 # TODO: update hyprland config
-unmask_pkg "hyprutils" "gui-libs/hyprutils" "~amd64"
-echo ""
-install_pkg "hyprutils" "gui-libs/hyprutils"
-echo ""
+
+# INFO: Commeneted out for rework with hyproverlay
+
+# unmask_pkg "hyprutils" "gui-libs/hyprutils" "~amd64"
+# echo ""
+# install_pkg "hyprutils" "gui-libs/hyprutils"
+# echo ""
 
 install_pkg "xdg-desktop-portal" "sys-apps/xdg-desktop-portal"
 echo ""
@@ -49,17 +88,17 @@ echo ""
 
 
 
-echo "Installing elogind"
-echo ""
+# echo "Installing nelogind"
+# echo ""
 
-install_pkg "elogind" "sys-auth/elogind"
-echo ""
+# install_pkg "elogind" "sys-auth/elogind"
+# echo ""
 
-echo "Starting elogind service and adding to boot"
-echo ""
+# echo "Starting elogind service and adding to boot"
+# echo ""
 
-sudo rc-update add elogind boot
-sudo rc-service elogind start
+# sudo rc-update add elogind boot
+# sudo rc-service elogind start
 
 
 
@@ -111,7 +150,7 @@ sudo cp "$DOTFILE_PATH" "$CONFIG_PATH"
 echo "Adding display-manager service to default..."
 echo ""
 
-sudo rc-update add display-manager default
+# sudo rc-update add display-manager default
 
 
 
