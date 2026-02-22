@@ -15,6 +15,8 @@ echo ""
 echo "Starting bluetooth service and adding to default..."
 echo ""
 
-sudo rc-service bluetooth start
-sudo rc-update add bluetooth default
+# sudo rc-service bluetooth start
+# sudo rc-update add bluetooth default
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
 echo ""

@@ -44,8 +44,9 @@ sudo chown unbound:unbound "/var/run/unbound"
 echo "Starting unbound service and adding to default..."
 echo ""
 
-sudo rc-service unbound start
-sudo rc-update add unbound default
+# sudo rc-service unbound start
+# sudo rc-update add unbound default
+sudo systemctl enable --now unbound
 echo ""
 
 echo "Installing bind-tools..."

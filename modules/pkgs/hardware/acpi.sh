@@ -17,6 +17,8 @@ echo ""
 echo "Starting acpid serivce and adding to default..."
 echo ""
 
-sudo rc-service acpid start
-sudo rc-update add acpid default
+# sudo rc-service acpid start
+# sudo rc-update add acpid default
+sudo systemctl enable acpid.service
+sudo systemctl start acpid.service
 echo ""

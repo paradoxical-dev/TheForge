@@ -15,8 +15,10 @@ echo ""
 echo "Starting firewalld service and adding to default..."
 echo ""
 
-sudo rc-service firewalld start
-sudo rc-update add firewalld default
+# sudo rc-service firewalld start
+# sudo rc-update add firewalld default
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
 echo ""
 
 echo "Configuring firewalld..."

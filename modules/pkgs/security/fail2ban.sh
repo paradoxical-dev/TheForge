@@ -52,6 +52,6 @@ echo ""
 echo "Starting fail2ban service and adding to default..."
 echo ""
 
-sudo rc-service fail2ban start
-sudo rc-update add fail2ban default
+# sudo rc-service fail2ban start
+# sudo rc-update add fail2ban default
 echo ""

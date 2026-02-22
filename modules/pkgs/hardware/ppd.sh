@@ -11,6 +11,7 @@ echo ""
 echo "Starting power-profiles-daemon service and adding to default..."
 echo ""
 
-sudo rc-service power-profiles-daemon start
-sudo rc-update add power-profiles-daemon default
+# sudo rc-service power-profiles-daemon start
+# sudo rc-update add power-profiles-daemon default
+sudo systemctl enable --now power-profiles-daemon
 echo ""

@@ -239,7 +239,7 @@ update_fzf_theme() {
 zstyle ":fzf-tab:complete:cd:*" fzf-preview 'eza -1 --color=always $realpath'
 
 # Service status
-zstyle ":fzf-tab:complete:rc-service:*" fzf-preview 'rc-service $word status'
+# zstyle ":fzf-tab:complete:rc-service:*" fzf-preview 'rc-service $word status'
 
 # File content
 zstyle ":fzf-tab:complete:*:*" fzf-preview 'less $realpath'
