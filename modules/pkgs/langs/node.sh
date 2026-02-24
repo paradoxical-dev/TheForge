@@ -2,28 +2,34 @@
 
 set -e
 
-echo "Installing system node version..."
+echo "Installing node..."
 echo ""
 
-NODE_VERSION=24.13.0
-ARCH=linux-x64
-NODE_DIR="/opt/nodejs"
-
-INSTALL_URL="https://nodejs.org/dist/v${NODE_VERSION}/node-${NODE_VERSION}-${ARCH}.tar.xz"
-
-sudo mkdir -p "$NODE_DIR"
-curl -fsSL "$INSTALL_URL" -o "/tmp/node-v${NODE_VERSION}-${ARCH}.tar.xz"
-
-echo "Unpacking node binary..."
+sudo emerge --verbose --getbinpkg "net-libs/nodejs"
 echo ""
 
-sudo tar -xJf "/tmp/node-v${NODE_VERSION}-${ARCH}.tar.xz" -C "$NODE_DIR"
+# echo "Installing system node version..."
+# echo ""
 
-sudo ln -sfn "$NODE_DIR/node-v${NODE_VERSION}-${ARCH}" "$NODE_DIR/current"
+# NODE_VERSION=24.13.0
+# ARCH=linux-x64
+# NODE_DIR="/opt/nodejs"
 
-sudo ln -sfn "$NODE_DIR/current/bin/node" /usr/local/bin/node
-sudo ln -sfn "$NODE_DIR/current/bin/npm"  /usr/local/bin/npm
-sudo ln -sfn "$NODE_DIR/current/bin/npx"  /usr/local/bin/npx
+# INSTALL_URL="https://nodejs.org/dist/v${NODE_VERSION}/node-${NODE_VERSION}-${ARCH}.tar.xz"
+
+# sudo mkdir -p "$NODE_DIR"
+# curl -fsSL "$INSTALL_URL" -o "/tmp/node-v${NODE_VERSION}-${ARCH}.tar.xz"
+
+# echo "Unpacking node binary..."
+# echo ""
+
+# sudo tar -xJf "/tmp/node-v${NODE_VERSION}-${ARCH}.tar.xz" -C "$NODE_DIR"
+
+# sudo ln -sfn "$NODE_DIR/node-v${NODE_VERSION}-${ARCH}" "$NODE_DIR/current"
+
+# sudo ln -sfn "$NODE_DIR/current/bin/node" /usr/local/bin/node
+# sudo ln -sfn "$NODE_DIR/current/bin/npm"  /usr/local/bin/npm
+# sudo ln -sfn "$NODE_DIR/current/bin/npx"  /usr/local/bin/npx
 
 echo "Installing nvm..."
 echo ""
