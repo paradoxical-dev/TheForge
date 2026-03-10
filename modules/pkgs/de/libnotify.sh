@@ -4,6 +4,10 @@ set -e
 
 echo "Installing libnotify..."
 
+if [[ ! "$PROFILE" = "kde" ]]; then
+    edit_use "notification-daemon" "virtual/notification-daemon" "-kde -gnome"
+fi
+
 install_pkg "libnotify" "x11-libs/libnotify"
 echo ""
     
