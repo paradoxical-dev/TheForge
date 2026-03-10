@@ -67,6 +67,8 @@ echo ""
 echo "Installing wikiman sources (arch, gentoo, tldr)..."
 echo ""
 
+# curl -L 'https://raw.githubusercontent.com/filiparag/wikiman/master/Makefile' -o 'wikiman-makefile'
+
 make source-gentoo && make source-arch && make source-tldr
 echo ""
 
