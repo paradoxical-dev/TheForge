@@ -28,6 +28,8 @@ mv "${TMP_DIR}"/Bibata-* "$CURSOR_DIR"/
 
 rm -rf "$TMP_DIR"
 
+sudo cp -r "${CURSOR_DIR}"/Bibata-* "/usr/share/icons/"
+
 echo ""
 echo "${green}Bibata cursors installed successfully!${color_end}"
 echo ""
