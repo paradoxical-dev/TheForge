@@ -98,3 +98,9 @@ sudo meson install -C build
 
 echo -e "${green}AGS manually installed into $HOME/src/ags!${color_end}"
 echo ""
+
+echo "Installing sass..."
+echo ""
+
+install_pkg "dev-ruby/sass"
+echo ""
