@@ -10,3 +10,9 @@ echo ""
 
 install_pkg "hypridle" "gui-apps/hypridle"
 echo ""
+
+echo "Enabling hypridle service for user $USER"
+echo ""
+
+systemctl --user enable hypridle
+echo ""
