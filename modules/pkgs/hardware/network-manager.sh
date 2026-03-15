@@ -5,7 +5,7 @@ set -e
 echo "Installing networkmanager..."
 echo ""
 
-flags="-ppp -wext iptables nftables"
+flags="-ppp -wext iptables nftables vala introspection"
 edit_use "networkmanager" "net-misc/networkmanager" "$flags"
 
 install_pkg "networkmanager" "net-misc/networkmanager"

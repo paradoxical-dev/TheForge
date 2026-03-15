@@ -84,6 +84,10 @@ cd "$HOME/src/astal/lib/hyprland"
 meson setup build --prefix=/usr
 meson install -C build
 
+cd "$HOME/src/astal/lib/network"
+meson setup build --prefix=/usr
+meson install -C build
+
 if [[ -d "$HOME/src/ags" ]]; then
     echo -e "${yellow}AGS already pulled into $HOME/src/ags. Skipping repo clone...${color_end}"
     echo ""
