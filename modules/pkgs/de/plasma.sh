@@ -19,6 +19,8 @@ LOCAL_PROFILE_DIR="/var/db/repos/local"
 if ! eselect repository list | grep -q "^local"; then
     eselect repository create local
 fi
+
+sudo mkdir -p "$LOCAL_PROFILE_DIR/metadata"
 cat <<EOF | sudo tee "$LOCAL_PROFILE_DIR/metadata/layout.conf" > /dev/null
 masters = gentoo
 thin-manifests = true
@@ -28,9 +30,9 @@ EOF
 
 # sudo mkdir -p "$LOCAL_PROFILE_DIR/profiles"
 sudo touch "$LOCAL_PROFILE_DIR/profiles/profiles.desc"
-echo "amd64 hardened-plasma-selinux stable" | sudo tee "$LOCAL_PROFILE_DIR/profiles/profiles.desc" > /dev/null
+echo "amd64 hardened-plasma-selinux-systemd stable" | sudo tee "$LOCAL_PROFILE_DIR/profiles/profiles.desc" > /dev/null
 
-LOCAL_PROFILE_DIR="/var/db/repos/local/profiles/hardened-plasma-selinux"
+LOCAL_PROFILE_DIR="/var/db/repos/local/profiles/hardened-plasma-selinux-systemd"
 sudo mkdir -p "$LOCAL_PROFILE_DIR"
 
 sudo touch "$LOCAL_PROFILE_DIR/eapi"
