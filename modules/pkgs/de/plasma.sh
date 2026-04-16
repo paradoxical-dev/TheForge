@@ -57,7 +57,7 @@ sudo eselect profile set "$profile_number"
 echo -e "${green}plasma-hardened-selinux profile set!${color_end}"
 echo ""
 
-inform_msg "A world rebuild in required with the new profile." "This may take a while..."
+inform_msg "A world rebuild is required with the new profile." "This may take a while..."
 sleep 3
 
 sudo emerge -vuDN @world
