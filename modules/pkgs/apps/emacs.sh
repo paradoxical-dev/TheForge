@@ -77,6 +77,9 @@ echo ""
 echo "Installing mdopen..."
 echo ""
 
+install_pkg "rust-bin" "dev-lang/rust-bin"
+echo ""
+
 cargo install mdopen
 echo ""
 
