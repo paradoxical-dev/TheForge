@@ -16,7 +16,7 @@
     // SIDEBAR
     {
         "key": "ctrl+left",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.toggleSidebarVisibility",
         // "when": "!inputFocus"
     },
     {
@@ -33,7 +33,7 @@
     // TERMINAL
     {
         "key": "ctrl+e",
-        "command": "workbench.action.terminal.toggleTerminal"
+        "command": "workbench.action.terminal.toggleTerminal",
     },
     
     // QOL

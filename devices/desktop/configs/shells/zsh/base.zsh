@@ -12,7 +12,7 @@
 
 #=== DIR CHECKS ===#
 if [[ ! -d "${XDG_CONFIG_HOME:-$HOME/.config}/zsh" ]]; then
-    mkdir -p $(dirname "${$XDG_CONFIG_HOME:-$HOME/.config}/zsh")
+    mkdir -p $(dirname "${XDG_CONFIG_HOME:-$HOME/.config}/zsh")
 elif [[ ! -d "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/oh-my-zsh" ]]; then
     echo -e "\e[1;33m!!! Oh My Zsh not installed. Installing now...\e[1;0m"
     ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/oh-my-zsh"
@@ -148,6 +148,21 @@ export PATH="$PATH:$HOME/go/bin"
 #=== ADD RUST BINARIES ===#
 export PATH="$PATH:$HOME/.cargo/bin"
 
+#=== PYENV ===#
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+#=== DOOM EMACS ===#
+export PATH="$PATH:$HOME/.config/emacs/bin"
+
+#=== .local/bin ===#
+export PATH="$PATH:$HOME/.local/bin"
+
+#=== NIX ===#
+export PATH="$PATH:/nix/var/nix/profiles/default/bin"
+export PATH="$PATH:$HOME/.nix-profile/bin"
+
 #=== NVM ===#
 export NVM_DIR="$HOME/.config/nvm"
 
@@ -239,7 +254,7 @@ update_fzf_theme() {
 zstyle ":fzf-tab:complete:cd:*" fzf-preview 'eza -1 --color=always $realpath'
 
 # Service status
-# zstyle ":fzf-tab:complete:rc-service:*" fzf-preview 'rc-service $word status'
+zstyle ":fzf-tab:complete:rc-service:*" fzf-preview 'rc-service $word status'
 
 # File content
 zstyle ":fzf-tab:complete:*:*" fzf-preview 'less $realpath'
@@ -272,3 +287,4 @@ zstyle ":fzf-tab:complete:-command-:*" fzf-preview \
 export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK        
 export ZVM_KEYTIMEOUT=0
 export ZVM_VI_HIGHLIGHT_BACKGROUND=#45475b
+

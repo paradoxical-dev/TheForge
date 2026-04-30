@@ -21,7 +21,7 @@
 
 /* increase base font size */
 .monaco-workbench {
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 
 /* file tree */
@@ -33,4 +33,6 @@
 
 .explorer-folders-view .monaco-list-row {
     padding-left: 10px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
 }
