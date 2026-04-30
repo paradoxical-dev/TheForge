@@ -1,0 +1,91 @@
+/*-*- mode: css; -*-*/
+
+configuration {
+    show-icons: true;
+    disable-history: false;
+    hide-scrollbar: true;
+    sidebar-mode: false;
+}
+
+* {
+    background: #00000060;
+    background-alt: #00000000;
+    background-bar: #f2f2f215;
+    foreground: #f2f2f2EE;
+    accent: #ffffff66;
+}
+
+window {
+    width: 1100px;
+    height: 375px;
+    anchor: center;
+    transparency: "real";
+    background-color: @background;
+    text-color: @foreground;
+    border: 0px;
+    border-color: @background;
+    border-color: #ff0000ff;
+    border-radius: 0px;
+}
+
+prompt {
+    enabled: false;
+    background-color: @background-alt;
+    text-color: @foreground;
+    font: "JetBrains Nerd Font 12";
+}
+
+entry {
+    enabled: false;
+    background-color: @background-alt;
+    text-color: @foreground;
+    placeholder-color: @foreground;
+    expand: true;
+    horizontal-align: 0;
+    placeholder: "Search";
+    padding: 0.10% 0% 0% 0%;
+    blink: true;
+}
+
+inputbar {
+    enabled: false;
+}
+
+listview {
+    background-color: @background-alt;
+    spacing: 2%;
+    cycle: false;
+    dynamic: true;
+    layout: horizontal;
+}
+
+mainbox {
+    background-color: @background-alt;
+    border: 0% 0% 0% 0%;
+    border-radius: 0% 0% 0% 0%;
+    border-color: @accent;
+    children: [ inputbar, listview ];
+    padding: 2.5%;
+}
+
+element {
+    background-color: @background-alt;
+    text-color: @foreground;
+    orientation: vertical;
+    border-radius: 0%;
+    padding: 10px;
+}
+
+element-icon {
+    size: 300px;
+    background-color: @background-alt;
+}
+
+element-text {
+    enabled: false;
+}
+
+element selected {
+    background-color: @background-bar;
+    border-radius: 25px;
+}
