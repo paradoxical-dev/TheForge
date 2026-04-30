@@ -1,0 +1,105 @@
+/*-*- mode: jsonc; -*-*/
+{
+    "height": 34,
+    "spacing": 9,
+    "margin-top": 10,
+    "modules-left": [],
+    "modules-center": [
+        "clock",
+        "hyprland/workspaces",
+        // "network",
+        "group/network-group",
+        // "battery",
+        "group/battery-group",
+        "custom/power"
+    ],
+    "modules-right": [],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            // "default": "",
+            // "active": ""
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "group/battery-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition_duration": 500,
+        },
+        "modules": [
+            "battery",
+            "custom/battery-perc"
+        ]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
+        // "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "~/.config/waybar/power-profile.sh"
+    },
+    "custom/battery-perc": {
+        "exec": "acpi -b | awk -F ', ' '{print $2}'",
+        "interval": 30,
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "group/network-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition_duration": 500,
+        },
+        "modules": [
+            "network",
+            "custom/network-ssid"
+        ]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "",
+        "format-disconnected": "⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "custom/network-ssid": {
+        "exec": "nmcli -t -f active,ssid, dev wifi | grep 'yes' | awk -F ':' '{print $2}'",
+        "interval": 60,
+        "format": "{}",
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format" : "",
+		"tooltip": false,
+        "on-click": "wlogout"
+    }
+}
